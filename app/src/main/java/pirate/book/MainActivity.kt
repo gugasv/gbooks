@@ -2,6 +2,7 @@ package pirate.book
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
 import dagger.hilt.android.AndroidEntryPoint
 import pirate.book.databinding.ActivityMainBinding
 
@@ -16,4 +17,5 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
     }
+
 }
