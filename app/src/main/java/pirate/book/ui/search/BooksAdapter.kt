@@ -43,7 +43,7 @@ object BooksAdapterDiffCallback: DiffUtil.ItemCallback<Book>() {
     }
 
     override fun areContentsTheSame(oldItem: Book, newItem: Book): Boolean {
-        return oldItem.id == newItem.id
+        return oldItem == newItem
     }
 
 }

@@ -1,11 +1,13 @@
 package pirate.book.ui.search
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
+import androidx.lifecycle.*
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.flow.toList
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import pirate.book.data.model.Book
 import pirate.book.data.repository.BooksRepository
 import javax.inject.Inject
@@ -20,8 +22,12 @@ class SearchViewModel @Inject internal constructor(
 
     init {
         viewModelScope.launch {
-            _books.value = repository.searchBook("beer").books
+            repository.searchBook("beer").collect {
+                _books.postValue(it)
+            }
         }
     }
+
+
 
 }

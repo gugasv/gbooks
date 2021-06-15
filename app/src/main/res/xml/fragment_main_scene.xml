@@ -22,9 +22,8 @@
         app:constraintSetEnd="@id/end"
         app:constraintSetStart="@+id/start"
         app:duration="1000">
-        <OnSwipe
-            app:touchAnchorId="@id/message"
-            app:touchAnchorSide="right"
-            app:dragDirection="dragRight" />
+        <OnClick
+            app:targetId="@id/message"
+            app:clickAction="toggle" />
     </Transition>
 </MotionScene>

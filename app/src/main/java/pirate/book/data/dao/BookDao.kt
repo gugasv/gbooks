@@ -17,8 +17,8 @@ interface BookDao {
     @Insert(onConflict = REPLACE)
     fun save(book: Book)
 
-    @Insert
-    fun inserAll(vararg books: Book)
+    @Insert(onConflict = REPLACE)
+    fun insertAll(books: List<Book>)
 
     @Delete
     fun delete(book: Book)

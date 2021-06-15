@@ -2,8 +2,6 @@ package pirate.book.ui.main
 
 import android.os.Bundle
 import android.view.*
-import android.view.MenuItem.OnActionExpandListener
-import android.widget.SearchView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.NavController
@@ -12,6 +10,7 @@ import androidx.navigation.fragment.findNavController
 import dagger.hilt.android.AndroidEntryPoint
 import pirate.book.R
 import pirate.book.databinding.FragmentMainBinding
+import pirate.book.ui.search.dialog.SearchDialogFragment
 
 @AndroidEntryPoint
 class MainFragment : Fragment() {
@@ -49,7 +48,8 @@ class MainFragment : Fragment() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.action_search -> {
-                navController.navigate(MainFragmentDirections.actionMainFragmentToSearchFragment())
+//                navController.navigate(MainFragmentDirections.actionMainFragmentToSearchFragment())
+                SearchDialogFragment().show(parentFragmentManager, "searchDialog")
                 return true
             }
         }
